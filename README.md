@@ -22,32 +22,6 @@ new version; do not replace an existing release.
 The root `cloverui.lua` is the development copy. This module is not interchangeable
 with a cache file that returns a table of dependency source strings.
 
-## Integration
-
-Load the module using your host's versioned loading mechanism, then pass the
-existing library and session-owned state:
-
-```lua
-local UI = CloverUI.Install(Library, {
-    IsAlive = sessionAlive,
-    Connections = runtimeConnections,
-    ConfigControllers = configControllers,
-})
-local CHK = UI.CHK
-```
-
-The host creates its own window, tabs, feature controls, and callbacks.
-
-- `UI.StyleWindow(Window)` applies branding, visibility controls, and responsive scaling.
-- `UI.StyleTabs(Window, tabs)` applies tab styling and installs the mobile scrolling helper.
-- `UI.PatchControls(firstGroupbox)` applies input and dropdown styling once.
-- `UI.StyleBoxes(groupboxes)` and `UI.Polish()` apply the final presentation pass.
-- Shared controls are available through `UI` and `UI.CHK`.
-
-On unload, disconnect the host's runtime cleanup registry and unload its Obsidian
-instance. `UI:Disconnect()` restores the notification handler and stops queued
-notifications; the library and GUI destruction handle their owned UI signals.
-
 ## Repository scope
 
 Publish only UI source, release artifacts, and public documentation here.
