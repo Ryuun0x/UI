@@ -1,0 +1,51 @@
+CloverUI release 1.0.0
+======================
+
+Artifact           cloverui.lua
+Publish path       /ui/1.0.0/cloverui.lua
+Size               78537 bytes
+SHA-256            e2cf84a9b4b4741b0dc2dcd9805566c969e9cf4e5f8d71a0440e72929f500bec
+Encoding           UTF-8, no BOM, LF only, single trailing newline
+Declared version   1.0.0
+Obsidian revision  fa7be5477c30e4a302cc60c85e93ecca926d297b
+
+Serving requirements
+--------------------
+Serve these exact bytes. Do not normalize line endings, add a BOM, minify,
+transcode, or append anything. Any of those changes the SHA-256 and will fail
+the loader's integrity check.
+
+Content-Type: text/plain; charset=utf-8
+Cache-Control: public, max-age=31536000, immutable
+
+This path is immutable once published. Changes ship as /ui/<next-version>/cloverui.lua.
+Never overwrite 1.0.0.
+
+Identity warning
+----------------
+Two different files are named cloverui.lua. Do not substitute one for the other.
+
+  THIS MODULE (publish this one)
+    78537 bytes   e2cf84a9b4b4741b0dc2dcd9805566c969e9cf4e5f8d71a0440e72929f500bec
+    Readable customization module. Takes an existing Obsidian library instance.
+
+  EXISTING WORKSPACE CACHE (do NOT publish, do NOT overwrite)
+    547603 bytes  e657b5ac24a17b46ff46873956a92ec66d1f1df35f9d2e4c9acfe96124e4689f
+    Path: CloverHub/StealAnEgg/cache/cloverui.lua
+    Returns a table of dependency source strings. Unrelated to this module.
+
+Dependency note
+---------------
+This is not a standalone UI bundle. It does not create or download an Obsidian
+library. The host passes in an already-constructed Obsidian instance pinned to
+revision fa7be5477c30e4a302cc60c85e93ecca926d297b. Obsidian remains a separate
+dependency and is not vendored here.
+
+Contains no credentials, tokens, licence logic, game routing or gameplay code.
+
+Post-publish verification
+-------------------------
+  curl -sS <FINAL_URL> | sha256sum
+  expect: e2cf84a9b4b4741b0dc2dcd9805566c969e9cf4e5f8d71a0440e72929f500bec
+
+Integration is a separate, later step. Production is not switched to this module.
